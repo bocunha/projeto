@@ -6,7 +6,7 @@ var templateLinha = `
 `;
 
 
-var url = "http://localhost:8088"
+var url = "https://isidrianos.herokuapp.com"
 
 function gerarRelatorioEquipamento() {
     var inicioData = document.getElementById("inicioFiltro").value;
