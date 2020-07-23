@@ -35,7 +35,7 @@ function clickBotaoEnviar(){
 
     // chamo a funcao FETCH para entrar em contato com o BackEnd. Assim que receber a resposta,
     // chama a função tratarResposta (para poder dar uma mensagem específica a cada código HTTP)
-    fetch("http://localhost/login", cabecalho)
+    fetch("https://isidrianos.herokuapp.com/login", cabecalho)
         .then(res => tratarResposta(res));
 }
 
