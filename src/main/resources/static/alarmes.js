@@ -12,7 +12,8 @@ var templateLinha = `
 </tr>
 `;
 
-var url = "https://isidrianos.herokuapp.com/eventos/periodo"
+var url = "https://isidrianos.herokuapp.com"
+
 
 function gerarRelatorioAlarmes() {
     var inicioData = document.getElementById("inicioFiltro").value;
@@ -32,7 +33,7 @@ function gerarRelatorioAlarmes() {
         }
     }
 
-    fetch(url, cabecalho)
+    fetch(url+"/eventos/alarmes/periodo", cabecalho)
         .then(res => res.json())
         .then(res => preencheTabelaAlarme(res));
 }
@@ -43,13 +44,6 @@ function preencheTabelaAlarme(res) {
 
     for (i = 0; i < res.length; i++) {
         var evento = res[i];
-        var estiloLinha;
-        if (i % 2 == 0) {
-            estiloLinha = "linhaPar";
-        }
-        else {
-            estiloLinha = "linhaImpar";
-        }
 
         var strLinha = templateLinha.replace("**QTDE**", evento.qtde)
             .replace("**ALARME**", evento.nomeAlarme),
@@ -66,7 +60,7 @@ function gerarRelatorioConsolidado() {
         method: 'GET'
     }
 
-    fetch(url, cabecalho)
+    fetch(url+"/eventos/alarmes/top", cabecalho)
         .then(res => res.json())
         .then(res => preencheTabela(res));
 }
