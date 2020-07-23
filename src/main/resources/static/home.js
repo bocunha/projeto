@@ -6,7 +6,7 @@ var templateInfo = `<strong>Nome:</strong> **NOME** <br>
                     <strong>UNIDADE:</strong> **UNIDADE**
                    `;
 
-var url = `"https://isidrianos.herokuapp.com/eventos/periodo"`
+var url = "https://isidrianos.herokuapp.com/eventos/periodo"
 
 
 function preencheInfo(){

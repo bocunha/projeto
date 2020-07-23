@@ -7,7 +7,7 @@ var templateLinha = `
 </tr>
 `;
 
-var url = `"https://isidrianos.herokuapp.com/eventos/periodo"`
+var url = "https://isidrianos.herokuapp.com/eventos/periodo"
 
 function checkLogin() {
     var user = localStorage.getItem("EvtUser");

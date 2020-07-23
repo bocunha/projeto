@@ -12,7 +12,7 @@ var templateLinha = `
 </tr>
 `;
 
-var url = `"https://isidrianos.herokuapp.com/eventos/periodo"`
+var url = "https://isidrianos.herokuapp.com/eventos/periodo"
 
 function gerarRelatorioAlarmes() {
     var inicioData = document.getElementById("inicioFiltro").value;
