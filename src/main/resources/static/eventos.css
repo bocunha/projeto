@@ -1,0 +1,33 @@
+body{
+    background-color: rgb(58, 58, 58);
+}
+
+.btn_logout{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.container{
+    background-color: white;
+}
+
+#tblEvento{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#tblHeader{
+    background-color: rgb(6, 6, 148);
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+#formData{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#breadcrumb{
+    margin-top: 50px;
+    margin-bottom: 5px;
+    border-radius: 5px
+}
