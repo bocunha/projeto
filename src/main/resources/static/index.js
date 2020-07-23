@@ -35,7 +35,7 @@ function clickBotaoEnviar(){
 
     // chamo a funcao FETCH para entrar em contato com o BackEnd. Assim que receber a resposta,
     // chama a função tratarResposta (para poder dar uma mensagem específica a cada código HTTP)
-    fetch("http://localhost:8088/login", cabecalho)
+    fetch("http://localhost/login", cabecalho)
         .then(res => tratarResposta(res));
 }
 
