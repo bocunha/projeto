@@ -32,7 +32,7 @@ function gerarRelatorio() {
         }
     }
 
-    fetch("http://localhost:8088/eventos/periodo", cabecalho)
+    fetch("http://isidrianos.herokuapp.com/eventos/periodo", cabecalho)
         .then(res => res.json())
         .then(res => preencheTabela(res));
 }

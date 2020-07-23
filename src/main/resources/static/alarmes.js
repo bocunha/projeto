@@ -31,7 +31,7 @@ function gerarRelatorioAlarmes() {
         }
     }
 
-    fetch("http://localhost:8088/eventos/alarmes/periodo", cabecalho)
+    fetch("https://isidrianos.herokuapp.com/eventos/alarmes/periodo", cabecalho)
         .then(res => res.json())
         .then(res => preencheTabelaAlarme(res));
 }
@@ -65,7 +65,7 @@ function gerarRelatorioConsolidado() {
         method: 'GET'
     }
 
-    fetch("http://localhost:8088/eventos/alarmes/top", cabecalho)
+    fetch("http://isidrianos.herokuapp.com/eventos/alarmes/top", cabecalho)
         .then(res => res.json())
         .then(res => preencheTabela(res));
 }
