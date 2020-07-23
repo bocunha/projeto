@@ -25,9 +25,23 @@
             </ol>
           </nav>
 
-        <div class="row">
-            <div class="col-12">
-                <button id="btn_logout" class="btn btn-primary float-right"  onclick="logout();">Logout</button>
+          <div class="container">
+            <div class="row" style="display: fixed; justify-content: flex-end">
+                <div class="col-md-1 col-xl-1 col-sm-6 col-12">
+                    <a href="#" id="csv" onclick="exportarCSV('tblEvento');">
+                        <img src="https://tinyurl.com/y59qxplq" alt="bottle" class="thumbnails" width="25"
+                            height="25" />
+                    </a>
+                </div>
+                <div class="col-md-1 col-xl- col-sm-6 col-12">
+                    <a href="#" id="pdf" onclick="exportarPDF('tblEvento');">
+                        <img src="https://tinyurl.com/y4hgobfp" alt="bottle" class="thumbnails" width="25"
+                            height="25" />
+                    </a>
+                </div>
+                <div class="col-md-2 col-xl-2 col-sm-6 col-12">
+                    <button id="btn_logout" class="btn btn-primary float-right" onclick="logout();">Logout</button>
+                </div>
             </div>
         </div>
 
@@ -76,17 +90,3 @@
 </body>
 
 </html>
-<!--
-"data": "2020-01-01",
-"alarme": {
-"id": 1,
-"nome": "FAIL_LINK",
-"descricao": "Link de comunicacao indisponivel"
-},
-},
-"equipamento": {
-    "id": 11,
-    "hostname": "ROUTER_AG_075",
-    "endIp": "10.2.75.1"
-}
--->

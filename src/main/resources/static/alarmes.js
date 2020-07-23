@@ -50,9 +50,9 @@ function preencheTabelaAlarme(res) {
         tabela = tabela + strLinha;
     }
     document.getElementById("relatorio").innerHTML = tabela;
+    geraGrafico(res);
+
 }
-
-
 
 function gerarRelatorioConsolidado() {
 
@@ -72,7 +72,6 @@ function preencheTabela(res) {
     for (i = 0; i < res.length; i++) {
         var evento = res[i];
         
-        console.log(top.nome);
         var strLinha = templateLinha.replace("**QTDE**", evento.qtde)
             .replace("**ALARME**", evento.nomeAlarme),
         tabela = tabela + strLinha;
@@ -86,6 +85,70 @@ function logout(){
     localStorage.removeItem("EvtUser");
 }
 
+function geraGrafico(res) {
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var colors = ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'];
+    var angles = [Math.PI * 0.3, Math.PI * 0.7, Math.PI * 0.2, Math.PI * 0.4];
+    var beginAngle = 0;
+    var endAngle = 0;
+    var total_alarmes = 0;
+    var y = 200
+    for (i = 0; i < res.length; i++) {
+        total_alarmes = total_alarmes + res[i].qtde;
+    }
+
+    for (i = 0; i < res.length; i++) {
+        var angulo = 2 * Math.PI * (res[i].qtde / total_alarmes);
+        beginAngle = endAngle;
+        endAngle = endAngle + angulo;
+
+        ctx.beginPath();
+
+        ctx.fillStyle = colors[i % colors.length];
+
+
+        ctx.moveTo(200, 200);
+        y = y + 20;
+        ctx.arc(200, 200, 120, beginAngle, endAngle);
+        ctx.lineTo(200, 200);
+        ctx.stroke();
+        ctx.font = '14px Calibri';
+        ctx.fillRect(350, y - 14, 18, 18);
+        ctx.fillText(res[i].nomeAlarme + " - " + res[i].qtde +
+            " (" + (res[i].qtde / total_alarmes * 100).toFixed(1) + "% )", 375, y);
+
+
+        ctx.fill();
+    }
+}
+
+
+function exportarPDF(table_id) {
+    var conteudoTabela = document.getElementById(table_id).innerHTML;
+    var conteudoGrafico = document.getElementById("canvas").toDataURL(); 
+    var win = window.open('', '', 'height=700,width=700');
+
+    win.document.write('<html><head>  <script type="text/javascript" src="alarmes.js"></script>');
+    win.document.write('<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"');
+    win.document.write('integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">');
+
+    win.document.write('</head>');
+    win.document.write('<body>');
+    win.document.write('<table id="' + table_id + '" class="table table-striped table-hover">')
+    win.document.write('<div class="row"></div>')
+    win.document.write('<div class="col-12">')
+    win.document.write(conteudoTabela);
+    win.document.write('</table>');
+    win.document.write('</div></div>');
+    win.document.write('<img id=graph src="' + conteudoGrafico + '" onload=printPDF()>')
+    win.document.write('</body></html>');
+    }
+
+function printPDF (){
+        print();
+        close();
+}
 
 function exportarCSV(table_id) {
     var rows = document.querySelectorAll('table#' + table_id + ' tr');
@@ -110,28 +173,4 @@ function exportarCSV(table_id) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-}
-
-
-
-
-function exportarPDF(table_id) {
-    var conteudoTabela = document.getElementById(table_id).innerHTML;
-    var win = window.open('', '', 'height=700,width=700');
-
-    win.document.write('<html><head>');
-    win.document.write('<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"');
-    win.document.write('integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">');   
-            
-    win.document.write('</head>');
-    win.document.write('<body>');
-    win.document.write('<table id="'+table_id+'" class="table table-striped table-hover">')
-    win.document.write('<div class="row"></div>')
-    win.document.write('<div class="col-12">')
-    win.document.write(conteudoTabela);         
-    win.document.write('</table>');
-    win.document.write('</body></html>');
-    win.document.write('</div></div>');
-    win.print();
-    win.close();
 }

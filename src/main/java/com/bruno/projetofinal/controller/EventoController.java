@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bruno.projetofinal.dao.EventoDAO;
 import com.bruno.projetofinal.dto.VolumeAlarmes;
+import com.bruno.projetofinal.dto.VolumeEquipamentos;
 import com.bruno.projetofinal.dto.consultaPeriodo;
 import com.bruno.projetofinal.model.Evento;
 
@@ -122,6 +123,18 @@ public class EventoController {
 			return null;
 		}
 	}
+
 	
+	@PostMapping("/eventos/hostname/periodo")
+	public ArrayList<VolumeEquipamentos> recuperarPorHostname(@RequestBody consultaPeriodo periodo){
+		try {
+			Date inicio = new SimpleDateFormat("yyyy-MM-dd").parse(periodo.getInicio());
+			Date fim = new SimpleDateFormat("yyyy-MM-dd").parse(periodo.getFim());
+			return dao.getAllByHostnameWithPeriod(inicio, fim);
+		} catch (Exception ex) {
+			return null;
+		}
+	}	
+
 	
 }

@@ -1,22 +1,14 @@
 var templateLinha = `
 <tr>
-<td>**DATA**</td>
-<td>**ALARME**</td>
+<td>**QTDE**</td>
 <td>**HOSTNAME**</td>
-<td>**IP**</td>
 </tr>
 `;
 
-var url = "https://isidrianos.herokuapp.com"
 
-function checkLogin() {
-    var user = localStorage.getItem("EvtUser");
-    if (!user) {
-        window.location = "index.html";
-    }
-}
+var url = "http://localhost:8088"
 
-function gerarRelatorio() {
+function gerarRelatorioEquipamento() {
     var inicioData = document.getElementById("inicioFiltro").value;
     var fimData = document.getElementById("fimFiltro").value;
     console.log(inicioData, fimData);
@@ -34,7 +26,7 @@ function gerarRelatorio() {
         }
     }
 
-    fetch(url+"/eventos/periodo", cabecalho)
+    fetch(url+"/eventos/hostname/periodo", cabecalho)
         .then(res => res.json())
         .then(res => preencheTabela(res));
 }
@@ -45,21 +37,38 @@ function preencheTabela(res) {
 
     for (i = 0; i < res.length; i++) {
         var evento = res[i];
-
-        var strLinha = templateLinha.replace("**DATA**", evento.data)
-            .replace("**ALARME**", evento.alarme.nome)
-            .replace("**HOSTNAME**", evento.equipamento.hostname)
-            .replace("**IP**", evento.equipamento.endIp)
-            .replace("**ID**", evento.equipamento.id);
+        var strLinha = templateLinha.replace("**QTDE**", evento.qtde)
+            .replace("**HOSTNAME**", evento.hostname),
         tabela = tabela + strLinha;
     }
     document.getElementById("relatorio").innerHTML = tabela;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 function logout(){
     window.location = "index.html";
     localStorage.removeItem("EvtUser");
 }
+
+
+function checkLogin() {
+    var user = localStorage.getItem("EvtUser");
+    if (!user) {
+        window.location = "index.html";
+    }
+}
+
+
 
 function exportarCSV(table_id) {
     var rows = document.querySelectorAll('table#' + table_id + ' tr');
@@ -75,7 +84,7 @@ function exportarCSV(table_id) {
     }
     var csv_string = csv.join('\n');
     // Download it
-    var filename = 'Eventos' + new Date().toLocaleDateString() + '.csv';
+    var filename = 'Equipamentos' + new Date().toLocaleDateString() + '.csv';
     var link = document.createElement('a');
     link.style.display = 'none';
     link.setAttribute('target', '_blank');

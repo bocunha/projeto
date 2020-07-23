@@ -18,3 +18,9 @@ body{
         margin-bottom: 5px;
         border-radius: 5px
 }
+
+#btnGO{
+    margin-top: 50px;
+    margin-bottom: 15%;
+    border-radius: 5px
+}
