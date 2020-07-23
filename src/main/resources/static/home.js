@@ -7,7 +7,7 @@ var templateInfo = `<strong>Nome:</strong> **NOME** <br>
                    `;
 
 
-var url = "https://isidrianos.herokuapp.com"
+var url = "https://isidronianos.herokuapp.com"
 
 function preencheInfo(){
     // qual a lógica da página?

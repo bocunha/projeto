@@ -1,4 +1,4 @@
-var url = "https://isidrianos.herokuapp.com"
+var url = "https://isidronianos.herokuapp.com"
 
 function clickBotaoEnviar(){
 

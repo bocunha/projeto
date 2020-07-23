@@ -7,7 +7,7 @@ var templateLinha = `
 </tr>
 `;
 
-var url = "https://isidrianos.herokuapp.com"
+var url = "https://isidronianos.herokuapp.com"
 
 function checkLogin() {
     var user = localStorage.getItem("EvtUser");
