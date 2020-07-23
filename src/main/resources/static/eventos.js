@@ -7,6 +7,8 @@ var templateLinha = `
 </tr>
 `;
 
+var url = `"https://isidrianos.herokuapp.com/eventos/periodo"`
+
 function checkLogin() {
     var user = localStorage.getItem("EvtUser");
     if (!user) {
@@ -32,7 +34,7 @@ function gerarRelatorio() {
         }
     }
 
-    fetch("http://isidrianos.herokuapp.com/eventos/periodo", cabecalho)
+    fetch(url, cabecalho)
         .then(res => res.json())
         .then(res => preencheTabela(res));
 }

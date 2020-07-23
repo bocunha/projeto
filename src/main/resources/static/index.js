@@ -1,3 +1,5 @@
+var url = `"https://isidrianos.herokuapp.com/eventos/periodo"`
+
 function clickBotaoEnviar(){
 
     /*
@@ -35,7 +37,7 @@ function clickBotaoEnviar(){
 
     // chamo a funcao FETCH para entrar em contato com o BackEnd. Assim que receber a resposta,
     // chama a função tratarResposta (para poder dar uma mensagem específica a cada código HTTP)
-    fetch("https://isidrianos.herokuapp.com/login", cabecalho)
+    fetch(url, cabecalho)
         .then(res => tratarResposta(res));
 }
 

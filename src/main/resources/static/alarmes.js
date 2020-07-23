@@ -12,6 +12,7 @@ var templateLinha = `
 </tr>
 `;
 
+var url = `"https://isidrianos.herokuapp.com/eventos/periodo"`
 
 function gerarRelatorioAlarmes() {
     var inicioData = document.getElementById("inicioFiltro").value;
@@ -31,7 +32,7 @@ function gerarRelatorioAlarmes() {
         }
     }
 
-    fetch("https://isidrianos.herokuapp.com/eventos/alarmes/periodo", cabecalho)
+    fetch(url, cabecalho)
         .then(res => res.json())
         .then(res => preencheTabelaAlarme(res));
 }
@@ -65,7 +66,7 @@ function gerarRelatorioConsolidado() {
         method: 'GET'
     }
 
-    fetch("http://isidrianos.herokuapp.com/eventos/alarmes/top", cabecalho)
+    fetch(url, cabecalho)
         .then(res => res.json())
         .then(res => preencheTabela(res));
 }
