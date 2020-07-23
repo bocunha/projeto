@@ -111,3 +111,27 @@ function exportarCSV(table_id) {
     link.click();
     document.body.removeChild(link);
 }
+
+
+
+
+function exportarPDF(table_id) {
+    var conteudoTabela = document.getElementById(table_id).innerHTML;
+    var win = window.open('', '', 'height=700,width=700');
+
+    win.document.write('<html><head>');
+    win.document.write('<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"');
+    win.document.write('integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">');   
+            
+    win.document.write('</head>');
+    win.document.write('<body>');
+    win.document.write('<table id="'+table_id+'" class="table table-striped table-hover">')
+    win.document.write('<div class="row"></div>')
+    win.document.write('<div class="col-12">')
+    win.document.write(conteudoTabela);         
+    win.document.write('</table>');
+    win.document.write('</body></html>');
+    win.document.write('</div></div>');
+    win.print();
+    win.close();
+}

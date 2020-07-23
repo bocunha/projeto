@@ -11,3 +11,40 @@ body{
     margin-bottom: 5px;
     border-radius: 5px
 }
+
+#btnAlarme {
+    padding: 5px;
+    border-radius: 10px
+}
+
+#btnConsolidado{
+    padding: 5px;
+    border-radius: 10px
+}
+
+#btnConsolidado {
+    padding: 5px;
+    border-radius: 10px
+}
+
+#tblAlarme {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+}
+
+#btn_logout {
+    padding: 5px;
+    border-radius: 10px
+}
+
+#csv {
+    padding: 5px;
+    border-radius: 10px
+}
+#pdf {
+    padding: 5px;
+    border-radius: 10px
+}
