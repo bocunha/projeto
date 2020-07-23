@@ -10,14 +10,7 @@ var templateInfo = `<strong>Nome:</strong> **NOME** <br>
 var url = "https://isidronianos.herokuapp.com"
 
 function preencheInfo(){
-    // qual a lógica da página?
-    /* ao ser carregada, ela vai chamar esta função (a gente vê isso no evento onLoad)
-       Uma vez carregada, eu vou verificar se o usuário está com informações armazenadas no 
-       localStorage
-       Se estiver, sinal que ele está conectado e vou preencher as informações da página
-          com o perfil dele
-       Se não estiver, redireciona para a página de login para evitar quaisquer violações
-       */
+
     var user = localStorage.getItem("EvtUser");
     if (!user){
         window.location = "index.html";

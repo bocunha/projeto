@@ -18,7 +18,6 @@ var url = "https://isidronianos.herokuapp.com"
 function gerarRelatorioAlarmes() {
     var inicioData = document.getElementById("inicioFiltro").value;
     var fimData = document.getElementById("fimFiltro").value;
-    console.log(inicioData, fimData);
 
     var msgBody = {
         inicio: inicioData,
@@ -39,7 +38,6 @@ function gerarRelatorioAlarmes() {
 }
 
 function preencheTabelaAlarme(res) {
-    console.log(res);
     var tabela = "";
 
     for (i = 0; i < res.length; i++) {
@@ -63,10 +61,10 @@ function gerarRelatorioConsolidado() {
     fetch(url+"/eventos/alarmes/top", cabecalho)
         .then(res => res.json())
         .then(res => preencheTabela(res));
+        geraGrafico(res);
 }
 
 function preencheTabela(res) {
-    console.log(res);
     var tabela = "";
 
     for (i = 0; i < res.length; i++) {
