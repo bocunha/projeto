@@ -1,4 +1,4 @@
-var templateFoto = `<img src="**FOTO**" width="100%">`;
+var templateFoto = `<img id="lblfoto" src="**FOTO**" width="100%">`;
 var templateInfo = `<strong>Nome:</strong> **NOME** <br>
                     <strong>RACF:</strong> **RACF** <br>
                     <strong>EMAIL:</strong> **EMAIL** <br>

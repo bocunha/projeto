@@ -1,4 +1,4 @@
-var templateLinha = `<tr><td><img src="**FOTO**" width="100%"></td>
+var templateLinha = `<tr><td><img id="lblfoto" src="**FOTO**" width="100%"></td>
                     <td><strong>Nome:</strong> **NOME** <br>
                     <strong>RACF:</strong> **RACF** <br>
                     <strong>EMAIL:</strong> **EMAIL** <br>
