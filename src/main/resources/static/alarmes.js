@@ -61,7 +61,6 @@ function gerarRelatorioConsolidado() {
     fetch(url+"/eventos/alarmes/top", cabecalho)
         .then(res => res.json())
         .then(res => preencheTabela(res));
-        geraGrafico(res);
 }
 
 function preencheTabela(res) {
@@ -76,6 +75,7 @@ function preencheTabela(res) {
     }
 
     document.getElementById("relatorio").innerHTML = tabela;
+    geraGrafico(res);
 }
 
 function logout(){
