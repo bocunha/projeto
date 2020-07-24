@@ -86,6 +86,7 @@ function logout(){
 function geraGrafico(res) {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
+    ctx.clearRect(0,0, canvas.width, canvas.height);
     var colors = ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E'];
     var angles = [Math.PI * 0.3, Math.PI * 0.7, Math.PI * 0.2, Math.PI * 0.4];
     var beginAngle = 0;
