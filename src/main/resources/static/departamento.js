@@ -44,6 +44,7 @@ function preencheInfo() {
                     .replace("**EMAIL**", User.email)
                     .replace("**DEPTO**", objUser.depto.nomedpt)
                     .replace("**UNIDADE**", objUser.depto.unidade)
+                    .replace("**FOTO**", User.linkFoto);
                     console.log(strLinha);
                 tabela = tabela + strLinha;
             }
