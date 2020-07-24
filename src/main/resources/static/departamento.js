@@ -31,12 +31,12 @@ function preencheInfo() {
 
         function PreencheUser(res) {
             var tabela = "";
-            console.log(Object.keys(res.usarUsuario).length);
-            console.log(res);
+            var count = Object.keys(res.usarUsuario).length;
+
         
             var objUser = JSON.parse(user);  // aqui vou converter a STRING armazenada para um objeto
 
-            for (i = 0; i < Object.keys(res).length; i++) {
+            for (i = 0; i < count; i++) {
                 var User = res.usarUsuario[i];
                 console.log(User);
                 var strLinha = templateLinha.replace("**NOME**", User.nome)
