@@ -2,7 +2,7 @@ var templateFoto = `<img src="**FOTO**" width="100%">`;
 var templateInfo = `<strong>Nome:</strong> **NOME** <br>
                     <strong>RACF:</strong> **RACF** <br>
                     <strong>EMAIL:</strong> **EMAIL** <br>
-                    <strong>DEPARTAMENTO:</strong> **DEPTO** <br>
+                    <strong>DEPARTAMENTO:</strong> <a href="departamento.html?id=**ID**">**DEPTO**</a> <br>
                     <strong>UNIDADE:</strong> **UNIDADE**
                    `;
 
